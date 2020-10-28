@@ -1,0 +1,315 @@
+import  projeto_final as p
+import sys
+import tkinter.messagebox as mb
+
+def main():
+    p.acai_listbox.insert('end','0')
+    p.adicionais.insert('end','0')
+    p.total.insert('end','0')
+    p.recibo.insert('end','0')
+    p.troco.insert('end','0')
+    p.dinheiro_entry.insert('end','0')
+    p.acai_300ml_sb.insert('end', '0')
+    p.acai_500ml_sb.insert('end', '0')
+    p.acai_700ml_sb.insert('end', '0')
+    p.leite_sb.insert('end', '0')
+    p.condensado_sb.insert('end', '0')
+    p.pacoca_sb.insert('end', '0')
+    p.morango_sb.insert('end', '0')
+    p.banana_sb.insert('end', '0')
+    p.granola_sb.insert('end', '0')
+    p.nutela_sb.insert('end', '0')
+
+    #p.acai_listbox.config(state='disabled')
+    #p.adicionais.config(state='disabled')
+    #p.total.config(state='disabled')
+    #p.recibo.config(state='disabled')
+    #p.troco.config(state='disabled')
+    p.dinheiro_entry.config(state='disabled')
+    p.acai_300ml_sb.config(state='disabled')
+    p.acai_500ml_sb.config(state='disabled')
+    p.acai_700ml_sb.config(state='disabled')
+    p.leite_sb.config(state='disabled')
+    p.condensado_sb.config(state='disabled')
+    p.pacoca_sb.config(state='disabled')
+    p.morango_sb.config(state='disabled')
+    p.banana_sb.config(state='disabled')
+    p.granola_sb.config(state='disabled')
+    p.nutela_sb.config(state='disabled')
+
+    p.recibo.insert('end','=================================================')
+    p.recibo.insert('end','                                                 Super Açai')
+    p.recibo.insert('end','=================================================')
+
+    p.janela.mainloop()
+
+def limpar():
+    m =mb.askyesno('Confirmar Lmpeza','Tem certeza que deseja limpar tudo ? \n')
+
+    if m == 1 :
+        p.acai_300ml_sb.delete(0, 5)
+        p.acai_500ml_sb.delete(0, 5)
+        p.acai_700ml_sb.delete(0, 5)
+        p.leite_sb.delete(0, 5)
+        p.condensado_sb.delete(0, 5)
+        p.pacoca_sb.delete(0, 5)
+        p.morango_sb.delete(0, 5)
+        p.banana_sb.delete(0, 5)
+        p.granola_sb.delete(0, 5)
+        p.nutela_sb.delete(0, 5)
+        p.acai_listbox.delete(0,5)
+        p.adicionais_listbox.delete(0,5)
+        p.total_listbox.delete(0,5)
+        p.troco_listbox.delete(0,5)
+        p.recibo.delete(0,5)
+        p.dinheiro_entry.delete(0,5)
+
+        p.acai_300ml_sb.insert('end', '0')
+        p.acai_500ml_sb.insert('end', '0')
+        p.acai_700ml_sb.insert('end', '0')
+        p.leite_sb.insert('end', '0')
+        p.condensado_sb.insert('end', '0')
+        p.pacoca_sb.insert('end', '0')
+        p.morango_sb.insert('end', '0')
+        p.banana_sb.insert('end', '0')
+        p.granola_sb.insert('end', '0')
+        p.nutela_sb.insert('end', '0')
+        p.dinheiro_entry.insert('end', '0')
+        p.acai_listbox.insert('end', '0')
+        p.adicionais_listbox.insert('end', '0')
+        p.total_listbox.insert('end', '0')
+        p.troco_listbox.insert('end','0')
+        p.recibo.insert('end', '0')
+
+        p.acai_300ml_sb.config(state='disabled')
+        p.acai_500ml_sb.config(state='disabled')
+        p.acai_700ml_sb.config(state='disabled')
+        p.leite_sb.config(state='disabled')
+        p.condensado_sb.config(state='disabled')
+        p.pacoca_sb.config(state='disabled')
+        p.morango_sb.config(state='disabled')
+        p.banana_sb.config(state='disabled')
+        p.granola_sb.config(state='disabled')
+        p.nutela_sb.config(state='disabled')
+
+        p.var1.set(value=0)
+        p.var2.set(value=0)
+        p.var3.set(value=0)
+        p.var4.set(value=0)
+        p.var5.set(value=0)
+        p.var6.set(value=0)
+        p.var7.set(value=0)
+        p.var8.set(value=0)
+        p.var9.set(value=0)
+        p.var10.set(value=0)
+
+        p.acai_listbox.delete('0','20')
+        p.recibo.insert('end', '=================================================')
+        p.recibo.insert('end', '                                                 Super Açai')
+        p.recibo.insert('end', '=================================================')
+
+    else :
+        mb.showinfo('AVISO','Ação cancelada!')
+
+def tot():
+    pequeno = int(p.acai_300ml_sb.get())
+    medio =  int(p.acai_500ml_sb.get())
+    grande = int(p.acai_700ml_sb.get())
+    leite_p = int(p.leite_sb.get())
+    condensado_p= int(p.condensado_sb.get())
+    pacoca_p = int(p.pacoca_sb.get())
+    morango_p = int(p.morango_sb.get())
+    banana_p = int(p.banana_sb.get())
+    granola_p = int(p.granola_sb.get())
+    nutela_p = int(p.nutela_sb.get())
+
+    acai_300ml, acai_500ml, acai_700ml = 10,14,18
+    leite, leite_cond,banana, granola = 1.0,1.0,1.0,1.0
+    pacoca, morango, nutela = 1.50,1.50,1.50
+
+    acai300 = acai_300ml * pequeno
+    acai500 = acai_500ml * medio
+    acai700 = acai_700ml * grande
+    l = leite * leite_p
+    lc = leite_cond * condensado_p
+    paçoca = pacoca * pacoca_p
+    m = morango * morango_p
+    b = banana * banana_p
+    gra = granola * granola_p
+    n   = nutela * nutela_p
+
+    acais = acai300 + acai500 + acai700
+    adicionais = l + lc + paçoca + m + b + gra + n
+
+    if (acais + adicionais) == 0 :
+        valor_total = 0
+
+    valor_total = acais + adicionais
+
+    p.acai_listbox.delete(0,5)
+    p.adicionais_listbox.delete(0,5)
+    p.total_listbox.delete(0,5)
+
+    p.acai_listbox.insert('end', 'R$' + str('%.2f' % acais))#converter em uma str
+    p.adicionais_listbox.insert('end', 'R$' + str('%.2f'% adicionais))
+    p.total_listbox.insert('end', 'R$' + str('%.2f'% valor_total))
+
+    dinheiro = int(p.dinheiro_entry.get())
+    troco = 0
+
+    if dinheiro != 0 :
+        troco = dinheiro - valor_total
+        p.troco_listbox.delete(0,5)
+        p.troco_listbox.insert('end', 'R$'+ str('%.2f' % troco))
+
+    return acais, adicionais, valor_total,acai300,acai500,acai700, l, lc,paçoca,m,b,gra,n, troco
+
+def recipt():
+    tupla = tot()
+
+    p.recibo.delete(0, 20)
+    p.recibo.insert("end", "=================================================")
+    p.recibo.insert("end", "                                                 ")
+    p.recibo.insert("end", "     Itens:                             Quantidade:                               Total:")
+    if p.var1.get() == 1: p.recibo.insert("end",
+                                          "     Açai 300ML                     {}                                                   {}".format(
+                                              p.acai_300ml_sb.get(), tupla[3]))
+    if p.var2.get() == 1: p.recibo.insert("end",
+                                          "     Açai 500ML                     {}                                                   {}".format(
+                                              p.acai_500ml_sb.get(), tupla[4]))
+    if p.var3.get() == 1: p.recibo.insert("end",
+                                          "     Açai 700ML                     {}                                                   {}".format(
+                                              p.acai_700ml_sb.get(), tupla[5]))
+    if p.var4.get() == 1: p.recibo.insert("end",
+                                          "     Leite em Pó                    {}                                                    {}".format(
+                                              p.leite_sb.get(), tupla[6]))
+    if p.var5.get() == 1: p.recibo.insert("end",
+                                          "     Leite condensado          {}                                                   {}".format(
+                                              p.condensado_sb.get(), tupla[7]))
+    if p.var6.get() == 1: p.recibo.insert("end",
+                                          "     Paçoca                             {}                                                   {}".format(
+                                              p.pacoca_sb.get(), tupla[8]))
+    if p.var7.get() == 1: p.recibo.insert("end",
+                                          "     Morango                            {}                                                 {}".format(
+                                              p.morango_sb.get(), tupla[9]))
+    if p.var8.get() == 1: p.recibo.insert("end",
+                                          "     Banana                             {}                                                    {}".format(
+                                              p.banana_sb.get(), tupla[10]))
+    if p.var9.get() == 1: p.recibo.insert("end",
+                                          "     Granola                             {}                                                   {}".format(
+                                              p.granola_sb.get(), tupla[11]))
+    if p.var10.get() == 1: p.recibo.insert("end",
+                                           "      Nutela                              {}                                                    {}".format(
+                                               p.nutela_sb.get(), tupla[12]))
+    p.recibo.insert("end", "                                                 ")
+    p.recibo.insert("end", ("Custo do Açai:" + "R$ " + str(
+        '%.2f' % tupla[0])))
+    p.recibo.insert("end", ("Custo dos adicionais :" + "R$ " + str(
+        '%.2f' % tupla[1])))
+    p.recibo.insert("end", ("Total : " + "R$ " + str(
+        '%.2f' % tupla[2])))
+    if float(p.dinheiro_entry.get()) != 0: p.recibo.insert("end", "Pagamento:        R$ {}".format(
+        '%.2f' % float(p.dinheiro_entry.get())))
+    if float(p.dinheiro_entry.get()) != 0: p.recibo.insert("end", "Troco:            R$ {}".format(
+        '%.2f' % float(tupla[13])))
+
+    p.recibo.insert("end", "=================================================")
+
+def sair_janela() :
+    m = mb.askyesno('Confirmar saída ','Tem certeza que deseja sair da loja ?')
+    if m == 1:
+        sys.exit()
+    else :
+        mb.showinfo('AVISO','Saída cancelada!')
+
+def acai_300() :
+    if p.var1.get() == 1 :
+        p.acai_300ml_sb.config(state='normal')
+        p.acai_300ml_sb.delete(0,5)
+    else :
+        p.acai_300ml_sb.delete(0,5)
+        p.acai_300ml_sb.insert('end','0')
+        p.acai_300ml_sb.config(state='disabled')
+
+def acai_500() :
+    if p.var2.get() == 1 :
+        p.acai_500ml_sb.config(state='normal')
+        p.acai_500ml_sb.delete(0,5)
+    else :
+        p.acai_500ml_sb.delete(0,5)
+        p.acai_500ml_sb.insert('end','0')
+        p.acai_500ml_sb.config(state='disabled')
+
+def acai_700() :
+    if p.var3.get() == 1 :
+        p.acai_700ml_sb.config(state='normal')
+        p.acai_700ml_sb.delete(0,5)
+    else :
+        p.acai_700ml_sb.delete(0,5)
+        p.acai_700ml_sb.insert('end','0')
+        p.acai_700ml_sb.config(state='disabled')
+
+
+def leite() :
+    if p.var4.get() == 1:
+        p.leite_sb.config(state='normal')
+        p.leite_sb.delete(0, 5)
+    else:
+        p.leite_sb.delete(0, 5)
+        p.leite_sb.insert('end', '0')
+        p.leite_sb.config(state='disabled')
+
+def leite_cond():
+    if p.var5.get() == 1:
+        p.condensado_sb.config(state='normal')
+        p.condensado_sb.delete(0, 5)
+    else:
+        p.condensado_sb.delete(0, 5)
+        p.condensado_sb.insert('end', '0')
+        p.condensado_sb.config(state='disabled')
+
+def pacoca() :
+    if p.var6.get() == 1 :
+        p.pacoca_sb.config(state='normal')
+        p.pacoca_sb.delete(0,5)
+    else :
+        p.pacoca_sb.delete(0,5)
+        p.pacoca_sb.insert('end','0')
+        p.pacoca_sb.config(state='disabled')
+
+def morango() :
+    if p.var7.get() == 1 :
+        p.morango_sb.config(state='normal')
+        p.morango_sb.delete(0,5)
+    else :
+        p.morango_sb.delete(0,5)
+        p.morango_sb.insert('end','0')
+        p.morango_sb.config(state='disabled')
+
+def banana() :
+    if p.var8.get() == 1 :
+        p.banana_sb.config(state='normal')
+        p.banana_sb.delete(0,5)
+    else :
+        p.banana_sb.delete(0,5)
+        p.banana_sb.insert('end','0')
+        p.banana_sb.config(state='disabled')
+
+def granola() :
+    if  p.var9.get() == 1 :
+        p.granola_sb.config(state='normal')
+        p.granola_sb.delete(0,5)
+    else :
+        p.granola_sb.delete(0,5)
+        p.granola_sb.insert('end','0')
+        p.granola_sb.config(state='disabled')
+
+def nutela() :
+    if p.var10.get() == 1  :
+        p.nutela_sb.config(state='normal')
+        p.nutela_sb.delete(0,5)
+    else :
+        p.nutela_sb.delete(0,5)
+        p.nutela_sb.insert('end','0')
+        p.nutela_sb.config(state='disabled')
+
