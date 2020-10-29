@@ -55,11 +55,11 @@ Frame_right.place(relx= 0.697,rely=0.080,relwidth=0.31, relheight=0.38)
 Frame_right.configure(relief= 'raised')#estilo da bordar
 Frame_right.configure(borderwidth = '8')#largura da borda
 Frame_right.configure(background="lavender")#cor de fundo
-#foto
-imagem = tk.PhotoImage(file="c:/Users/leoac/Downloads/ft.png")
-w = tk.Label(Frame_right, image=imagem)
-w.imagem = imagem
-w.place(relx= 0,rely=0,relwidth=1, relheight=0.9)
+#foto (DEIXEI COMENTADO POIS VOU ALTERAR PARA CONSEGUIR USAR EM TODOS OS PCS E PARA O SR CONSEGUIR USAR)'
+#imagem = tk.PhotoImage(file="c:/Users/leoac/Downloads/ft.png")
+#w = tk.Label(Frame_right, image=imagem)
+#w.imagem = imagem
+#w.place(relx= 0,rely=0,relwidth=1, relheight=0.9)
 
 Frame_bot_right = tk.Frame(Frame_Top)#(frame da direita embaixo dentro do frame do topo)
 Frame_bot_right.place(relx= 0.697,rely=0.43,relwidth=0.31, relheight=0.5)
